@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Fonts.js",
+      "sha1": "fe230fbec1ea4ccfa54f6c5505cf59cdc35709eb"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe-Bold-Italic.ttf",
+      "sha1": "1518d36e689831d4e40ec89b7e746c4e394805eb"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe-Bold.ttf",
+      "sha1": "bda7a89e65e08829645ecee7e6b7b97c8735b0b3"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe-Italic.ttf",
+      "sha1": "24379912bbc0b1520888824ab688380cf544efe2"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe-Light-Italic.ttf",
+      "sha1": "ca0b0e3b5812499b73d2d50c681593f9ae59a3f5"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe-Light.ttf",
+      "sha1": "fe58003905d197c6866d95a721257a6473cc1658"
+    },
+    {
+      "path": "src/assets/fonts/Louis-George-Cafe.ttf",
+      "sha1": "08fa6752004c984d9535e8581c79c8811ffb1b49"
+    }
+  ]
+}
