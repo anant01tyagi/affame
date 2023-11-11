@@ -5,6 +5,8 @@ const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const jwtKey = "qwertyuiopasdfghjklzxcvbnm";
 
 router.post(
   "/createuser",
@@ -20,10 +22,12 @@ router.post(
       return res.status(400).json({ errors: result.array() });
     }
 
+    const salt = await bcrypt.genSalt(10);
+    let secPassword = await bcrypt.hash(req.body.password, salt);
     try {
       await User.create({
         name: req.body.name,
-        password: req.body.password,
+        password: secPassword,
         email: req.body.email,
         location: req.body.location,
       });
@@ -58,13 +62,25 @@ router.post(
           .json({ code: "400", error: "Incorrect email/password." });
       }
 
-      if (req.body.password !== useremail.password) {
+      const pwdCompare = await bcrypt.compare(
+        req.body.password,
+        useremail.password
+      );
+      if (!pwdCompare) {
         return res
           .status(400)
           .json({ code: "400", error: "Incorrect email/password." });
       }
 
-      return res.json({ code: "200", success: true });
+      const data = {
+        user: {
+          id: useremail.id,
+        },
+      };
+
+      const authToken = jwt.sign(data, jwtKey);
+
+      return res.json({ code: "200", success: true, authToken: authToken });
     } catch (error) {}
   }
 );

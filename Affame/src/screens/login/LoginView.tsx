@@ -15,6 +15,7 @@ import {AppTheme} from '../../themes/AppTheme';
 import FONTS from '../../assets/fonts/Fonts';
 import axios from 'axios';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginView = props => {
   const visible = require('../../assets/icons/view.png');
@@ -28,6 +29,15 @@ const LoginView = props => {
   const [password, setPassword] = React.useState('');
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
+  //asynstorage for token
+  const storeData = async value => {
+    try {
+      await AsyncStorage.setItem('my-key', value);
+    } catch (e) {
+      // saving error
+    }
+  };
+
   const handleSubmit = async () => {
     const data = {
       email: email,
@@ -40,8 +50,9 @@ const LoginView = props => {
           'Content-Type': 'application/json',
         },
       })
-      .then(response => {
+      .then(async response => {
         console.log('Post request successful:', response.data);
+        await storeData(response.data.authToken);
         navigation.navigate('Home');
       })
       .catch(error => {
