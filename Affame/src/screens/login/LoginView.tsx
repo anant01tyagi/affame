@@ -38,6 +38,7 @@ const LoginView = props => {
     }
   };
 
+  //API Call to login with email and password
   const handleSubmit = async () => {
     const data = {
       email: email,

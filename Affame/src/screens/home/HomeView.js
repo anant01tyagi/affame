@@ -6,7 +6,9 @@ import SearchBar from '../../components/SearchBar';
 import Categories from './components/Categories';
 import Restaurants from './components/Restaurants';
 import axios from 'axios';
+
 const HomeView = () => {
+  //API call to get all food items
   const getFoodItems = async () => {
     await axios
       .post(`http://10.30.5.133:5000/api/foodData`, {
@@ -23,6 +25,7 @@ const HomeView = () => {
       });
   };
 
+  //API call to get all food categories
   const getFoodCategories = async () => {
     await axios
       .post(`http://10.30.5.133:5000/api/foodCategories`, {

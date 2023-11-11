@@ -33,6 +33,7 @@ const SignUpView = props => {
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
   const [c_secureTextEntry, c_setSecureTextEntry] = React.useState(true);
 
+  //API call to create new user in database
   const handleSubmit = async () => {
     const data = {
       name: name,
