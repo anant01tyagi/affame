@@ -5,8 +5,8 @@ import FONTS from '../../../assets/fonts/Fonts';
 const Item = ({item}) => {
   return (
     <TouchableOpacity style={styles.container}>
-      <Text style={styles.itemName}>{item.name}</Text>
-      <Image style={styles.itemImg} source={item.image}></Image>
+      <Text style={styles.itemName}>{item.CategoryName}</Text>
+      <Image style={styles.itemImg} source={{uri: item.image}}></Image>
     </TouchableOpacity>
   );
 };

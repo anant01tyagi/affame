@@ -28,7 +28,7 @@ const categories = [
   },
 ];
 
-const Categories = () => {
+const Categories = ({categories}) => {
   return (
     <View>
       <Text style={styles.txt}>Popular Categories</Text>

@@ -1,16 +1,56 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text, TextInput, Image} from 'react-native';
 import FONTS from '../../assets/fonts/Fonts';
 import {AppTheme} from '../../themes/AppTheme';
 import SearchBar from '../../components/SearchBar';
 import Categories from './components/Categories';
 import Restaurants from './components/Restaurants';
+import axios from 'axios';
 const HomeView = () => {
+  const getFoodItems = async () => {
+    await axios
+      .post(`http://10.30.5.133:5000/api/foodData`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        console.log('Post request successful:');
+        setFood(response.data[0]);
+      })
+      .catch(error => {
+        console.error('Error making post request:', error);
+      });
+  };
+
+  const getFoodCategories = async () => {
+    await axios
+      .post(`http://10.30.5.133:5000/api/foodCategories`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        console.log('Post request successful:');
+        setCategories(response.data[0]);
+      })
+      .catch(error => {
+        console.error('Error making post request:', error);
+      });
+  };
+
+  const [food, setFood] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getFoodItems();
+    getFoodCategories();
+  }, []);
   return (
     <View style={styles.container}>
       <SearchBar></SearchBar>
-      <Categories></Categories>
-      <Restaurants></Restaurants>
+      <Categories categories={categories}></Categories>
+      <Restaurants food={food}></Restaurants>
     </View>
   );
 };

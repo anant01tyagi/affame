@@ -11,14 +11,14 @@ import {AppTheme} from '../themes/AppTheme';
 import FONTS from '../assets/fonts/Fonts';
 import {useNavigation} from '@react-navigation/native';
 
-const Header = () => {
+const HeaderCart = () => {
   const navigation = useNavigation();
-  const cart = require('../assets/icons/cart.png');
+  const back = require('../assets/icons/backArrow.png');
   const acc = require('../assets/icons/account.png');
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-        <Image source={cart} style={styles.img}></Image>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Image source={back} style={styles.img}></Image>
       </TouchableOpacity>
       <Text style={styles.txt}>Affamé</Text>
       <TouchableOpacity>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header;
+export default HeaderCart;

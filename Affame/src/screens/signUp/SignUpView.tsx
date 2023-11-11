@@ -109,6 +109,11 @@ const SignUpView = props => {
           id="passWord"
           value={c_password}
         />
+        {password != c_password && (
+          <Text style={{fontSize: 10, color: 'red', marginTop: 4}}>
+            Confirm password should be same as password
+          </Text>
+        )}
 
         <TouchableOpacity
           onPress={() => c_setSecureTextEntry(!c_secureTextEntry)}

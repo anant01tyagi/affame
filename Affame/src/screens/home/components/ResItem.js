@@ -5,7 +5,6 @@ import {AppTheme} from '../../../themes/AppTheme';
 import {useNavigation} from '@react-navigation/native';
 
 const ResItem = props => {
-  console.log(props);
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -16,13 +15,17 @@ const ResItem = props => {
       <View style={styles.img}>
         <Image
           style={{width: '100%', resizeMode: 'contain', height: '100%'}}
-          source={props.item.image}></Image>
+          source={{uri: props.item.img}}></Image>
       </View>
       <View style={styles.containerDetails}>
         <Text style={styles.txtName}>{props.item.name}</Text>
-        <Text style={styles.txtRating}>{props.item.rating}</Text>
-        <Text style={styles.txtSpecialty}>{props.item.specialty}</Text>
-        <Text style={styles.txtaddress}>{props.item.address}</Text>
+        {/* <Text style={styles.txtRating}>{props.item.rating}</Text> */}
+        <Text style={styles.txtSpecialty}>{props.item.CategoryName}</Text>
+        <Text style={styles.txtaddress}>
+          {props.item.description.length > 60
+            ? props.item.description.slice(0, 60) + '...'
+            : props.item.description}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -70,9 +73,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   txtaddress: {
-    fontFamily: FONTS.CAFE_ITALIC,
+    fontFamily: FONTS.CAFE,
     color: AppTheme.Colors.TERTIARY,
-    fontSize: 15,
+    fontSize: 13,
+    marginTop: 5,
   },
 });
 export default ResItem;

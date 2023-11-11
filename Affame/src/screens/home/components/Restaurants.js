@@ -76,12 +76,13 @@ const res = [
   },
 ];
 
-const Restaurants = () => {
+const Restaurants = ({food}) => {
+  console.log(food);
   return (
-    <View>
-      <Text style={styles.txtRes}>Explore Restaurants</Text>
+    <View style={{flex: 1}}>
+      <Text style={styles.txtRes}>Explore Food Items</Text>
       <FlatList
-        data={res}
+        data={food}
         renderItem={({item}) => <ResItem item={item}></ResItem>}></FlatList>
     </View>
   );

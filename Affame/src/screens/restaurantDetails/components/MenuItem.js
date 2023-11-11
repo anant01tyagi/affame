@@ -4,15 +4,19 @@ import FONTS from '../../../assets/fonts/Fonts';
 import {AppTheme} from '../../../themes/AppTheme';
 
 const MenuItem = ({item}) => {
+  const data = [item];
   return (
     <View style={styles.container}>
       <View style={styles.containerTxt}>
-        <Text style={styles.txtName}>{item.name}</Text>
-        <Text style={styles.txtQuantity}>{item.quantity}g</Text>
-        <Text style={styles.txtPrice}>Rs {item.price}</Text>
+        <Text style={styles.txtName}>
+          {item[0].charAt(0).toUpperCase() + item[0].slice(1)}
+        </Text>
+
+        <Text style={styles.txtPrice}>Rs {item[1]}</Text>
+        {/* <Text style={styles.txtQuantity}>{item.half}g</Text> */}
       </View>
       <View style={styles.containerImgBtn}>
-        <Image style={styles.img} source={item.image}></Image>
+        {/* <Image style={styles.img} source={item.image}></Image> */}
         <TouchableOpacity style={styles.touchableAdd}>
           <Text style={styles.txtAdd}>ADD</Text>
         </TouchableOpacity>

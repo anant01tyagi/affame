@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import RestaurantDetails from '../screens/restaurantDetails/RestaurantDetailsView';
 import RestaurantDetailsView from '../screens/restaurantDetails/RestaurantDetailsView';
 import CartDetailsView from '../screens/cart/CartDetailsView';
+import HeaderCart from '../components/HeaderCart';
 
 const RootStack = createNativeStackNavigator();
 const AuthStack = createNativeStackNavigator();
@@ -57,7 +58,7 @@ const RootNavigation = () => {
           component={CartDetailsView}
           options={{
             headerShown: true,
-            header: Header,
+            header: HeaderCart,
           }}></AuthStack.Screen>
       </AuthStack.Navigator>
     </NavigationContainer>
