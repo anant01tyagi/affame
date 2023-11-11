@@ -64,6 +64,13 @@ node index.js
 <img src="https://github.com/anant01tyagi/affame/assets/80847886/2cb88729-efc1-4c0c-8166-728891b8ec1a" width="276" height="600"/>
 <img src="https://github.com/anant01tyagi/affame/assets/80847886/aa1e7dc5-0db2-4e69-83e9-614b0b68f130" width="276" height="600"/>
 
+
+## Screen Recording
+[Screen Recording can be found here](https://github.com/anant01tyagi/affame/blob/master/Android%20Emulator%20-%20Pixel_4a_API_30_5554%202023-11-12%2003-56-45.mp4)  
+
+
+
+  
 **Note**: For ease of running and testing of this application, information such as PORT, Database URI, base URL, etc. have not been kept hidden.  
 
 
